@@ -1,44 +1,38 @@
-buildscript {
-    ext {
-        springBootVersion = '1.5.8.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
+plugins {
+    id 'org.springframework.boot' version '3.2.0' // Updated Spring Boot version
+    id 'java'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
-
-apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
 
 group = 'com.contentful.tea.java'
 version = '1.0.0'
-sourceCompatibility = '1.8'
 
-mainClassName = 'com.contentful.tea.java.MainController'
+sourceCompatibility = '21'
+targetCompatibility = '21'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile 'org.springframework:spring-core'
-    compile 'org.springframework:spring-webmvc'
-    compile "org.springframework.boot:spring-boot-starter-data-rest:${springBootVersion}"
-    compile "org.springframework.boot:spring-boot-devtools:${springBootVersion}"
-    compile 'javax.servlet:javax.servlet-api:3.1.0'
-    compile 'com.atlassian.commonmark:commonmark:0.10.0'
-    compile 'de.neuland-bfi:jade4j:1.2.7'
-    compile 'com.contentful.java:java-sdk:10.0.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'javax.servlet:javax.servlet-api:4.0.1' // Updated for compatibility
+    implementation 'com.atlassian.commonmark:commonmark:0.10.0'
+    implementation 'de.neuland-bfi:jade4j:1.2.7'
+    implementation 'com.contentful.java:java-sdk:10.0.0'
 
-    testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
-    testCompile 'com.squareup.okhttp3:mockwebserver:3.8.1'
-    testCompile 'commons-io:commons-io:2.5'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:3.8.1'
+    testImplementation 'commons-io:commons-io:2.5'
 }
+
+// Ensure you use Gradle Wrapper for consistency
+wrapper {
+    gradleVersion = '8.1.1' // Updated Gradle version
+}
+
+
 
 
 
