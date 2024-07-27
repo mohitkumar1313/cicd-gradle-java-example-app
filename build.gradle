@@ -27,11 +27,6 @@ dependencies {
     testImplementation 'commons-io:commons-io:2.5'
 }
 
-// Ensure you use Gradle Wrapper for consistency
-wrapper {
-    gradleVersion = '8.1.1' // Updated Gradle version
-}
-
 
 
 
