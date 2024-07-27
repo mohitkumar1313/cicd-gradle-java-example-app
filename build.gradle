@@ -1,31 +1,29 @@
 plugins {
-    id 'org.springframework.boot' version '3.2.0' // Updated Spring Boot version
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.0'
     id 'java'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
 group = 'com.contentful.tea.java'
 version = '1.0.0'
-
-sourceCompatibility = '17'
-targetCompatibility = '17'
+sourceCompatibility = '21'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'javax.servlet:javax.servlet-api:4.0.1' // Updated for compatibility
-    implementation 'com.atlassian.commonmark:commonmark:0.10.0'
-    implementation 'de.neuland-bfi:jade4j:1.2.7'
-    implementation 'com.contentful.java:java-sdk:10.0.0'
-
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    implementation 'com.contentful.java:cda-sdk:10.0.0'
+    // Add other necessary dependencies
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'com.squareup.okhttp3:mockwebserver:3.8.1'
-    testImplementation 'commons-io:commons-io:2.5'
 }
+
+test {
+    useJUnitPlatform()
+}
+
 
 
 
