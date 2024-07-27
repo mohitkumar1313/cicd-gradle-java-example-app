@@ -17,7 +17,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'com.contentful.tea.java'
 version = '1.0.0'
-sourceCompatibility = 1.8
+sourceCompatibility = '1.8'
 
 mainClassName = 'com.contentful.tea.java.MainController'
 
@@ -42,14 +42,12 @@ dependencies {
 
 jar {
     manifest {
-        attributes(
-                'Main-Class': mainClassName
-        )
+        attributes 'Main-Class': mainClassName
     }
 }
 
-bootJar {
-    mainClassName = 'com.contentful.tea.java.MainController'
+bootRepackage {
+    mainClass = 'com.contentful.tea.java.MainController'
 }
 
 dependencyManagement {
@@ -60,7 +58,7 @@ dependencyManagement {
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
-    options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+    options.compilerArgs += ["-Xlint:deprecation", "-Xlint:unchecked"]
 }
 
 test {
@@ -68,6 +66,7 @@ test {
 }
 
 wrapper {
-    gradleVersion = '6.8.3'
+    gradleVersion = '4.10.3'
 }
+
 
