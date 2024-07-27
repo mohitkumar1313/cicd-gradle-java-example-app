@@ -40,33 +40,6 @@ dependencies {
     testCompile 'commons-io:commons-io:2.5'
 }
 
-jar {
-    manifest {
-        attributes 'Main-Class': mainClassName
-    }
-}
 
-bootRepackage {
-    mainClass = 'com.contentful.tea.java.MainController'
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
-    }
-}
-
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
-    options.compilerArgs += ["-Xlint:deprecation", "-Xlint:unchecked"]
-}
-
-test {
-    useJUnitPlatform()
-}
-
-wrapper {
-    gradleVersion = '4.10.3'
-}
 
 
